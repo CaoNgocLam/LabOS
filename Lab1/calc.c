@@ -8,8 +8,8 @@ int main()
     float ANS;
     fscanf(file, "%f", &ANS);
     fclose(file);
-    char **hist = allocate_memory(5, histFile);
     int counting = 0;
+    char **hist = allocate_memory(5, &counting, histFile);
 
     if (hist == NULL) {
         return EXIT_FAILURE;
