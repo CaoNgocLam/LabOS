@@ -1,10 +1,11 @@
 stopped=0
-ANS=0
 hist=()
+ANS=0
 
 while [[ $stopped -ne 1 ]]; do
     read -p ">> " expression
     read -r num1 oper num2  <<< "$expression"
+    read ANS < ans.txt
     if [ "$num1" == "EXIT" ] ; then
         ((stopped+=1))
         break
@@ -56,6 +57,7 @@ while [[ $stopped -ne 1 ]]; do
 
 	ANS=$res
 	echo $res
+    echo $res > ans.txt
 	if [ ${#hist[@]} -ge 5 ] ; then
 		hist=("${hist[@]:1}")
 	fi 
